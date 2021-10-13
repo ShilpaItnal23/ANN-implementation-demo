@@ -1,7 +1,18 @@
 import tensorflow as tf
-
+import os
+import logging
 
 def get_data(validation_datasize):
+    """ create a validation data set from the full training data
+
+    Args:
+        validation_datasize (int): validation data size
+        
+    Returns:
+        (tuple): returns tuple containing training, validation and data size
+    """
+    logging.info("Preparing the data by segregating the training, validation and test data")
+    
     mnist = tf.keras.datasets.mnist
     (X_train_full, y_train_full), (X_test, y_test) = mnist.load_data()
 
